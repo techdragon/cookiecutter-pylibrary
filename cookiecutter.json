@@ -45,5 +45,9 @@
     "sphinx_doctest": ["no", "yes"],
     "travis": ["yes", "no"],
     "appveyor": ["yes", "no"],
-    "requiresio": ["yes", "no"]
+    "requiresio": ["yes", "no"],
+    "use_pypi_deployment_with_travis": ["yes", "no"], 
+    "pypi_username": "{{ cookiecutter.github_username }}",
+    "travis_ci_encrypted_pypi_deployment_password": "",
+    "deploy_based_on_version": "2.7"
 }
