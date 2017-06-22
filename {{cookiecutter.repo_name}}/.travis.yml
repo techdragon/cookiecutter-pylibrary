@@ -43,3 +43,15 @@ notifications:
   email:
     on_success: never
     on_failure: always
+{% if cookiecutter.use_pypi_deployment_with_travis == 'y' -%}
+deploy:
+  provider: pypi
+  distributions: sdist bdist_wheel
+  user: {{ cookiecutter.pypi_username }}
+  password:
+    secure: {{ cookiecutter.travis_ci_encrypted_pypi_deployment_password }}
+  on:
+    tags: true
+    repo: {{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}
+    python: {{ cookiecutter.deploy_based_on_python_version|float }}
+{%- endif %}
